@@ -224,6 +224,8 @@ if(typeof token == 'string')
 	                    }
 	                }
 	            });
+				
+				document.getElementById("intro").innerHTML = "<p>Thanks for waiting!</p>";
 		}
 	           
 
