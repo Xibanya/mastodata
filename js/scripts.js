@@ -124,7 +124,7 @@ function findGetParameter(parameterName) {
 								"aqua",
 								"aquamarine",
 								"azure",
-								"beige"
+								"beige",
 								"bisque",
 								"blanchedalmond",
 								"blue",
