@@ -22,6 +22,9 @@ function findGetParameter(parameterName) {
     return result;
 }
 
+	var reachedEnd = false;
+	var response = [];
+	var allDomains = [];
 	var token = findGetParameter('code');
 	//console.log('Token: ' + token);
 	
@@ -29,57 +32,111 @@ function findGetParameter(parameterName) {
 	    var xmlhttp = new XMLHttpRequest();
 	    xmlhttp.onreadystatechange = function () {
 	        if (this.readyState == 4 && this.status == 200) {
-	            
-	            var response = [];
-                //get every single domain in the response
-	            for (var x in JSON.parse(this.responseText)) {
+				
+					//get every single domain in the response
+					for (var x in JSON.parse(this.responseText)) {
 
-	                var temp = JSON.parse(this.responseText)[x].acct; //this is the full account name
-	                tempArr = [];
-	                tempArr = temp.split("@");
-	                if (tempArr[1] == null) {
-	                    response.push(domain);
-	                }
-	                else {
-	                    response.push(tempArr[1]);
-	                }
-	            }
+						var temp = JSON.parse(this.responseText)[x].acct; //this is the full account name
+						tempArr = [];
+						tempArr = temp.split("@");
+						if (tempArr[1] == null) {
+							response.push(domain);
+						}
+						else {
+							response.push(tempArr[1]);
+						}
+					}
+					
+						var linkHeader = xmlhttp.getResponseHeader('Link');
+						if (linkHeader.includes("next")) {
+							var getLink = linkHeader.split(">")[0].substring(1);
+							console.log(getLink);
+							
+								xmlhttp.open("GET", getLink, true);
+								xmlhttp.setRequestHeader("Authorization", "Bearer " + token);
+								xmlhttp.send();
+						}
+						else {
+							PrepChartData();
+						}
+			}
+		}
 
-                //put all the unique domains into an array
-	            var allDomains = [];
-	            for (var n in response) {
-	                if (!allDomains.includes(response[n])) {
-	                    allDomains.push(response[n]);
-	                }
+		function PrepChartData() {
+			//put all the unique domains into an array
+			for (var n in response) {
+	            if (!allDomains.includes(response[n])) {
+	                allDomains.push(response[n]);
 	            }
-	            
-	            //count frequency of domains
+	        }
+				            //count frequency of domains
 	            var domainFreq = {};
 	            for (var i = 0; i < response.length; i++) {
 	                var num = response[i];
 	                domainFreq[num] = domainFreq[num] ? domainFreq[num] + 1 : 1;
 	            }
-
-	            var counts = [];
+				var counts = [];
 	            for (var i in allDomains) {
 	                console.log(allDomains[i] + ": " + domainFreq[allDomains[i]]);
 	                counts.push(domainFreq[allDomains[i]]);
 	            }
 
-	            var pieData = {
-	                labels: allDomains,
+				DrawChart(allDomains, counts);				
+		}
+		
+		function DrawChart(domains, dataset) {
+			var ctx = document.getElementById("myChart");
+			var pieData = {
+	                labels: domains,
 	                datasets: [
                         {
-                            data: counts,
+                            data: dataset,
                             backgroundColor: [
                                 "#FF6384",
                                 "#36A2EB",
-                                "#FFCE56"
+                                "#FFCE56",
+								"aliceblue",
+								"antiquewhite",
+								"aqua",
+								"aquamarine",
+								"azure",
+								"beige",
+								"bisque",
+								"blanchedalmond",
+								"blue",
+								"blueviolet",
+								"brown",
+								"burlywood",
+								"cadetblue",
+								"chartreuse",
+								"chocolate",
+								"coral",
+								"cornflowerblue",
+								"consilk"
+								
                             ],
                             hoverBackgroundColor: [
                                 "#FF6384",
                                 "#36A2EB",
-                                "#FFCE56"
+                                "#FFCE56",
+								"aliceblue",
+								"antiquewhite",
+								"aqua",
+								"aquamarine",
+								"azure",
+								"beige"
+								"bisque",
+								"blanchedalmond",
+								"blue",
+								"blueviolet",
+								"brown",
+								"burlywood",
+								"cadetblue",
+								"chartreuse",
+								"chocolate",
+								"coral",
+								"cornflowerblue",
+								"consilk"								
                             ]
                         }]
 	            };
@@ -91,23 +148,17 @@ function findGetParameter(parameterName) {
 	                options: {
 	                    title: {
 	                        display: true,
-	                        text: 'A Title',
+	                        text: 'Followers',
 	                        position: 'bottom',
 	                        fullWidth: true
 	                    }
 	                }
 	            });
+		}
 	            
-
-	        }
-	    }
 	    xmlhttp.open("GET", "https://mastodon.xyz/api/v1/accounts/7775/followers", true);
 	    xmlhttp.setRequestHeader("Authorization", "Bearer " + token);
 	    xmlhttp.send();
 
-
-
 	}
 //todo, if token is null load setup form, if not proceed to load charts
-
-	
