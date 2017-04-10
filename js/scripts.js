@@ -4,18 +4,27 @@ var redirect = 'https://xibanya.github.io/mastodata/index.html';
 
 var account;
 var token = localStorage.getItem("mastodata-token");
+var code = localStorage.getItem("mastodata-code");
 
 
-	if(typeof token == 'string') {
+	if(typeof code == 'string') {
 		//TODO: remove when done debugging
-		console.log("Already have token: " + token);
+		console.log("Already have code: " + code);
 	}
 	else
 	{
-		console.log("Don't have token yet");
+		if (findGetParameter('code') != null) {
+			code = findGetParameter('code');
+			localStorage.setItem("mastodata-code", code);
+			document.getElementById("intro").innerHTML = "<p>You have a code!</p>";
+		}
+		else
+		{
+		console.log("Don't have code yet");
 		authURL = "https://" + domain + '/oauth/authorize?response_type=code&client_id=' + client_id +'&redirect_uri=' + redirect;
 		console.log(authURL);
 		document.getElementById("intro").innerHTML = "<a href='"+authURL+"'>Click to authenticate</a>";
+		}
 	}
 
 
@@ -32,7 +41,7 @@ function findGetParameter(parameterName) {
     return result;
 }
 
-var code = findGetParameter('code');
+
 if (code != null && typeof token != 'string') 
 {
 	var data = new FormData();
