@@ -14,13 +14,12 @@ var token = localStorage.getItem("mastodata-token");
 	}
 	else
 	{
-		authenticate();
-	}
-		function authenticate() {
+		console.log("Don't have token yet");
 		authURL = "https://" + domain + '/oauth/authorize?response_type=code&client_id=' + client_id +'&redirect_uri=' + redirect;
 		console.log(authURL);
 		document.getElementById("intro").innerHTML = "<a href='"+authURL+"'>Click to authenticate</a>";
-		};
+	}
+
 
 function findGetParameter(parameterName) {
     var result = null,
