@@ -3,8 +3,6 @@ var domain = 'mastodon.xyz';
 var redirect = 'https://xibanya.github.io/mastodata/index.html';
 
 var account;
-	//var token = 'cd5c2fc8e99c48f38ec584672fb3daeb7580414abf40fe707f7508854f27955f'
-	//var userID = '7775';
 var token = localStorage.getItem("mastodata-token");
 
 
