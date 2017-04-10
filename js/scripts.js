@@ -79,7 +79,7 @@ if(typeof token == 'string')
 				userID = JSON.parse(this.responseText).id;
 				account = JSON.parse(this.responseText).username;
 				console.log("userID: " + userID + ", account: " + account);
-				document.getElementById("intro").innerHTML = "<p>Hello " + account + "!</p>";	
+				document.getElementById("intro").innerHTML = "<p>Hello " + account + "!  Wait just a moment while I grab your follower data!</p>";	
 
 				GetFollowers();
 			}
