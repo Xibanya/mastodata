@@ -57,6 +57,7 @@ if (code != null && typeof token != 'string')
 			token = JSON.parse(this.responseText).access_token;
 			localStorage.setItem("mastodata-token", token);
 			console.log("Token: " + token);
+			GetUser();
 		}
 	}
 		
