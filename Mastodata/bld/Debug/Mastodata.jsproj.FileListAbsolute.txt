@@ -14,3 +14,5 @@ C:\Users\spatu\Source\Repos\mastodata\Mastodata\bld\Debug\qualifiers.txt
 C:\Users\spatu\Source\Repos\mastodata\Mastodata\bld\Debug\qualifiers.txt.intermediate
 C:\Users\spatu\Source\Repos\mastodata\Mastodata\bld\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\spatu\Source\Repos\mastodata\Mastodata\bld\Debug\ProjectArchitectures.txt
+C:\Users\spatu\Source\Repos\mastodata\Mastodata\bin\Debug\js\angular.js
+C:\Users\spatu\Source\Repos\mastodata\Mastodata\bin\Debug\js\common.js

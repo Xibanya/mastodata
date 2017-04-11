@@ -68,9 +68,13 @@
     <Content Include="images\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="images\StoreLogo.png" />
     <Content Include="images\Wide310x150Logo.scale-200.png" />
-    <Content Include="js\angular.js" />
+    <Content Include="js\angular.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="js\Chart.js" />
-    <Content Include="js\common.js" />
+    <Content Include="js\common.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="js\main.js" />
     <Content Include="css\default.css" />
     <Content Include="js\scripts.js" />
