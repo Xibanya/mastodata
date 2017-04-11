@@ -1,0 +1,16 @@
+C:\Users\spatu\Source\Repos\mastodata\Mastodata\bin\Debug\ReverseMap\resources.pri
+C:\Users\spatu\Source\Repos\mastodata\Mastodata\bin\Debug\AppxManifest.xml
+C:\Users\spatu\Source\Repos\mastodata\Mastodata\bin\Debug\Mastodata.build.appxrecipe
+C:\Users\spatu\Source\Repos\mastodata\Mastodata\bld\Debug\ResourceHandlingTask.state
+C:\Users\spatu\Source\Repos\mastodata\Mastodata\bld\Debug\priconfig.xml
+C:\Users\spatu\Source\Repos\mastodata\Mastodata\bld\Debug\priconfig.xml.intermediate
+C:\Users\spatu\Source\Repos\mastodata\Mastodata\bld\Debug\layout.resfiles
+C:\Users\spatu\Source\Repos\mastodata\Mastodata\bld\Debug\layout.resfiles.intermediate
+C:\Users\spatu\Source\Repos\mastodata\Mastodata\bld\Debug\resources.resfiles
+C:\Users\spatu\Source\Repos\mastodata\Mastodata\bld\Debug\resources.resfiles.intermediate
+C:\Users\spatu\Source\Repos\mastodata\Mastodata\bld\Debug\pri.resfiles
+C:\Users\spatu\Source\Repos\mastodata\Mastodata\bld\Debug\pri.resfiles.intermediate
+C:\Users\spatu\Source\Repos\mastodata\Mastodata\bld\Debug\qualifiers.txt
+C:\Users\spatu\Source\Repos\mastodata\Mastodata\bld\Debug\qualifiers.txt.intermediate
+C:\Users\spatu\Source\Repos\mastodata\Mastodata\bld\Debug\MultipleQualifiersPerDimensionFound.txt
+C:\Users\spatu\Source\Repos\mastodata\Mastodata\bld\Debug\ProjectArchitectures.txt

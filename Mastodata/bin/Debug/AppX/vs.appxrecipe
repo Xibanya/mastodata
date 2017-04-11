@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>DESKTOP-LF2UH5U</Machine>
+    <WindowsUser>spatu</WindowsUser>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetOsVersion>10.0</TargetOsVersion>
+    <TargetOsDescription>Windows 10.0</TargetOsDescription>
+    <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+    <PackageIdentityName>dcee27b3-42a8-4daa-ba23-af727d971f34</PackageIdentityName>
+    <PackageIdentityPublisher>CN=spatu</PackageIdentityPublisher>
+    <IntermediateOutputPath>C:\Users\spatu\Source\Repos\mastodata\Mastodata\bld\Debug\</IntermediateOutputPath>
+    <RemoteDeploymentType>
+    </RemoteDeploymentType>
+    <PackageRegistrationPath>
+    </PackageRegistrationPath>
+    <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
+    <RegisteredManifestChecksum>5936222E6FCE53250089F67A5AF1E94D3CD335E71BE22196120669790B006651</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>dcee27b3-42a8-4daa-ba23-af727d971f34_1.0.0.0_neutral__zjckv6nf46qf8</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>dcee27b3-42a8-4daa-ba23-af727d971f34_zjckv6nf46qf8!App</RegisteredUserModeAppID>
+    <RegisteredPackageID>dcee27b3-42a8-4daa-ba23-af727d971f34</RegisteredPackageID>
+    <RegisteredPackagePublisher>CN=spatu</RegisteredPackagePublisher>
+    <RegisteredVersion>1.0.0.0</RegisteredVersion>
+    <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\spatu\Source\Repos\mastodata\Mastodata\bin\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-04-11T22:38:29.217</Modified>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\spatu\Source\Repos\mastodata\Mastodata\css\bootstrap.min.css">
+      <PackagePath>css\bootstrap.min.css</PackagePath>
+      <Modified>2017-04-11T22:33:24.028</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\spatu\Source\Repos\mastodata\Mastodata\css\style.css">
+      <PackagePath>css\style.css</PackagePath>
+      <Modified>2017-04-11T22:33:24.031</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\spatu\Source\Repos\mastodata\Mastodata\css\default.css">
+      <PackagePath>css\default.css</PackagePath>
+      <Modified>2017-04-11T22:35:28.008</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\spatu\Source\Repos\mastodata\Mastodata\index.html">
+      <PackagePath>index.html</PackagePath>
+      <Modified>2017-04-11T22:39:19.835</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\spatu\Source\Repos\mastodata\Mastodata\images\LockScreenLogo.scale-200.png">
+      <PackagePath>images\LockScreenLogo.scale-200.png</PackagePath>
+      <Modified>2015-09-20T22:30:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\spatu\Source\Repos\mastodata\Mastodata\images\SplashScreen.scale-200.png">
+      <PackagePath>images\SplashScreen.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-09-20T22:30:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\spatu\Source\Repos\mastodata\Mastodata\images\Square150x150Logo.scale-200.png">
+      <PackagePath>images\Square150x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-09-20T22:30:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\spatu\Source\Repos\mastodata\Mastodata\images\Square44x44Logo.scale-200.png">
+      <PackagePath>images\Square44x44Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-09-20T22:30:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\spatu\Source\Repos\mastodata\Mastodata\images\Square44x44Logo.targetsize-24_altform-unplated.png">
+      <PackagePath>images\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-09-20T22:30:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\spatu\Source\Repos\mastodata\Mastodata\images\StoreLogo.png">
+      <PackagePath>images\StoreLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-09-20T22:30:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\spatu\Source\Repos\mastodata\Mastodata\images\Wide310x150Logo.scale-200.png">
+      <PackagePath>images\Wide310x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-09-20T22:30:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\spatu\Source\Repos\mastodata\Mastodata\js\angular.js">
+      <PackagePath>js\angular.js</PackagePath>
+      <Modified>2017-04-11T22:33:24.075</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\spatu\Source\Repos\mastodata\Mastodata\js\Chart.js">
+      <PackagePath>js\Chart.js</PackagePath>
+      <Modified>2017-04-11T22:33:24.108</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\spatu\Source\Repos\mastodata\Mastodata\js\common.js">
+      <PackagePath>js\common.js</PackagePath>
+      <Modified>2017-04-11T22:33:24.112</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\spatu\Source\Repos\mastodata\Mastodata\js\main.js">
+      <PackagePath>js\main.js</PackagePath>
+      <Modified>2017-04-11T22:35:28.044</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\spatu\Source\Repos\mastodata\Mastodata\js\scripts.js">
+      <PackagePath>js\scripts.js</PackagePath>
+      <Modified>2017-04-11T22:39:57.883</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\spatu\Source\Repos\mastodata\Mastodata\bin\Debug\ReverseMap\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-04-11T22:38:29.011</Modified>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>
