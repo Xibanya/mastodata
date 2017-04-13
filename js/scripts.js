@@ -5,6 +5,8 @@ var redirect = 'https://xibanya.github.io/mastodata/index.html';
 var account;
 var token = localStorage.getItem("mastodata-token");
 var code = localStorage.getItem("mastodata-code");
+var fullFollowers = [];
+var fullFollowing = [];
 
 
 	if(typeof code == 'string') {
@@ -82,6 +84,7 @@ if(typeof token == 'string')
 				document.getElementById("intro").innerHTML = "<p>Hello " + account + "!  Wait just a moment while I grab your follower data!</p>";	
 
 				GetFollowers();
+				GetFollowing();
 			}
 		}
 		
@@ -102,6 +105,7 @@ if(typeof token == 'string')
 					for (var x in JSON.parse(this.responseText)) {
 
 						var temp = JSON.parse(this.responseText)[x].acct; //this is the full account name
+						fullFollowers.push(temp);
 						tempArr = [];
 						tempArr = temp.split("@");
 						if (tempArr[1] == null) {
@@ -122,7 +126,7 @@ if(typeof token == 'string')
 								xmlhttp.send();
 						}
 						else {
-							PrepChartData(response, allDomains);
+							PrepFollowerChartData(response, allDomains);
 						}
 			}
 		}
@@ -131,8 +135,51 @@ if(typeof token == 'string')
 	    xmlhttp.setRequestHeader("Authorization", "Bearer " + token);
 	    xmlhttp.send();
 	}
+	
+	function GetFollowing() {
+		var reachedEnd = false;
+		var response = [];
+		var allDomains = [];
+	    var xmlhttp = new XMLHttpRequest();
+	    xmlhttp.onreadystatechange = function () {
+	        if (this.readyState == 4 && this.status == 200) {
+				
+					//get every single domain in the response
+					for (var x in JSON.parse(this.responseText)) {
 
-		function PrepChartData(rawResponse, domains) {
+						var temp = JSON.parse(this.responseText)[x].acct; //this is the full account name
+						fullFollowing.push(temp);
+						tempArr = [];
+						tempArr = temp.split("@");
+						if (tempArr[1] == null) {
+							response.push(domain);
+						}
+						else {
+							response.push(tempArr[1]);
+						}
+					}
+					
+						var linkHeader = xmlhttp.getResponseHeader('Link');
+						if (linkHeader.includes("next")) {
+							var getLink = linkHeader.split(">")[0].substring(1);
+							console.log(getLink);
+							
+								xmlhttp.open("GET", getLink, true);
+								xmlhttp.setRequestHeader("Authorization", "Bearer " + token);
+								xmlhttp.send();
+						}
+						else {
+							PrepFollowingChartData(response, allDomains);
+						}
+			}
+		}
+		
+		xmlhttp.open("GET", "https://mastodon.xyz/api/v1/accounts/" + userID + "/following", true);
+	    xmlhttp.setRequestHeader("Authorization", "Bearer " + token);
+	    xmlhttp.send();
+	}	
+
+		function PrepFollowerChartData(rawResponse, domains) {
 			//put all the unique domains into an array
 			for (var n in rawResponse) {
 	            if (!domains.includes(rawResponse[n])) {
@@ -148,14 +195,50 @@ if(typeof token == 'string')
 				var counts = [];
 	            for (var i in domains) {
 	                console.log(domains[i] + ": " + domainFreq[domains[i]]);
+					var tempHTML = "<tr><td>" + domains[i] + "</td><td>" + domainFreq[domains[i]] + "</td></tr>";
+					//document.getElementById('followerTable').innerHTML += tempHTML;
 	                counts.push(domainFreq[domains[i]]);
 	            }
 
-				DrawChart(domains, counts);				
+				//for (var i in fullFollowers) {
+				//	console.log(fullFollowers[i]);					
+				//}
+				
+				var chartTitle = account + "'s Followers";
+				DrawChart(domains, counts, "myChart", chartTitle);				
 		}
 		
-		function DrawChart(domains, dataset) {
-			var ctx = document.getElementById("myChart");
+		function PrepFollowingChartData(rawResponse, domains) {
+			//put all the unique domains into an array
+			for (var n in rawResponse) {
+	            if (!domains.includes(rawResponse[n])) {
+	                domains.push(rawResponse[n]);
+	            }
+	        }
+				            //count frequency of domains
+	            var domainFreq = {};
+	            for (var i = 0; i < rawResponse.length; i++) {
+	                var num = rawResponse[i];
+	                domainFreq[num] = domainFreq[num] ? domainFreq[num] + 1 : 1;
+	            }
+				var counts = [];
+	            for (var i in domains) {
+	                console.log(domains[i] + ": " + domainFreq[domains[i]]);
+					var tempHTML = "<tr><td>" + domains[i] + "</td><td>" + domainFreq[domains[i]] + "</td></tr>";
+					//document.getElementById('followingTable').innerHTML += tempHTML;
+	                counts.push(domainFreq[domains[i]]);
+	            }
+
+				//for (var i in fullFollowing) {
+				//	console.log(fullFollowing[i]);
+				//}
+				
+				var chartTitle = account + "'s Follows";
+				DrawChart(domains, counts, "followingChart", chartTitle);				
+		}
+		
+		function DrawChart(domains, dataset, chartID, chartTitle) {
+			var ctx = document.getElementById(chartID);
 			var pieData = {
 	                labels: domains,
 	                datasets: [
@@ -218,16 +301,16 @@ if(typeof token == 'string')
 	                options: {
 	                    title: {
 	                        display: true,
-	                        text: account + "'s Followers",
-	                        position: 'bottom',
+	                        text: chartTitle,
+	                        position: 'top',
 	                        fullWidth: true
-	                    }
+	                    },
+						legend: {
+							display: false
+						}
 	                }
 	            });
 				
-				document.getElementById("intro").innerHTML = "<p>Thanks for waiting!</p>";
+				document.getElementById("intro").innerHTML = "<p>If you enjoyed this, let me know! Mastodon: Xibanya@mastodon.xyz Twitter: twitter.com/ManuelaXibanya</p>";
 		}
 	           
-
-	
-//todo, if token is null load setup form, if not proceed to load charts
