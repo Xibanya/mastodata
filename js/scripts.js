@@ -258,7 +258,7 @@ if(typeof token == 'string')
 				//	console.log(fullFollowers[i]);					
 				//}
 				
-				var chartTitle = account + "'s Followers";
+				var chartTitle = account + "@" + domain + "'s Followers";
 				DrawChart(domains, counts, "myChart", chartTitle);				
 		}
 		
@@ -287,7 +287,7 @@ if(typeof token == 'string')
 				//	console.log(fullFollowing[i]);
 				//}
 				
-				var chartTitle = account + "'s Follows";
+				var chartTitle = account + "@" + domain + "'s Follows";
 				DrawChart(domains, counts, "followingChart", chartTitle);				
 		}
 		
@@ -365,6 +365,6 @@ if(typeof token == 'string')
 	                }
 	            });
 				
-				document.getElementById("intro").innerHTML = "<p>If you enjoyed this, let me know! Mastodon: Xibanya@mastodon.xyz Twitter: twitter.com/ManuelaXibanya</p>";
+				document.getElementById("intro").innerHTML = "<p>If you enjoyed this, let me know at <a href=\"https://mastodon.xyz/@Xibanya\" target=\"new\">Xibanya@Mastodon.xyz</a> or <a href=\"https://twitter.com/manuelaxibanya\" target=\"new\">@ManuelaXibanya</a>!</p>";
 		}
 	           
