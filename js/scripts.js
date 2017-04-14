@@ -1,6 +1,18 @@
-var client_id = '248ec9c765e3313b26b50b9d6cdb7f6d12c47f8ae10661d138c6d02a17d9c6a4'
-var domain = 'mastodon.xyz';
+var domain = localStorage.getItem("mastodata-domain");
+var client_id = localStorage.getItem("mastodata-clientid");
 var redirect = 'https://xibanya.github.io/mastodata/index.html';
+
+var xyz_client_id = '248ec9c765e3313b26b50b9d6cdb7f6d12c47f8ae10661d138c6d02a17d9c6a4';
+var xyz_domain = 'mastodon.xyz';
+
+var social_client_id = '345b07536e79d4ce14af8e0d59042ffd53629faed1077808addbecdaab5d4bc1';
+var social_domain = 'mastodon.social';
+
+var cloud_client_id = '8e1853376cb66d9379e02c118189f4b0ec807aba87b666c00f84e5949d8ed123';
+var cloud_domain = 'mastodon.cloud';
+
+var club_client_id = 'd2232d81f57ba41cc0c4637dadc26fcf36c4d3786f2c317de0708c81eb9ed6fd';
+var club_domain = 'mastodon.club';
 
 var account;
 var token = localStorage.getItem("mastodata-token");
@@ -9,9 +21,34 @@ var fullFollowers = [];
 var fullFollowing = [];
 
 
+function xyz () {
+	domain = xyz_domain;
+	client_id = xyz_client_id;	
+	GetAuthLink();
+}
+
+function social () {
+	domain = social_domain;
+	client_id = social_client_id;	
+	GetAuthLink();
+}
+
+function club () {
+	domain = club_domain;
+	client_id = club_client_id;	
+	GetAuthLink();
+}
+
+function cloud () {
+	domain = cloud_domain;
+	client_id = cloud_client_id;	
+	GetAuthLink();
+}
+
 	if(typeof code == 'string') {
 		//TODO: remove when done debugging
 		console.log("Already have code: " + code);
+		document.getElementById("intro").innerHTML = "<p>&nbsp;</p>";
 	}
 	else
 	{
@@ -22,13 +59,18 @@ var fullFollowing = [];
 		}
 		else
 		{
+			GetAuthLink();
+		}
+	}
+
+	function GetAuthLink () {
+		localStorage.setItem("mastodata-domain", domain);
+		localStorage.setItem("mastodata-clientid", client_id);
 		console.log("Don't have code yet");
 		authURL = "https://" + domain + '/oauth/authorize?response_type=code&client_id=' + client_id +'&redirect_uri=' + redirect;
 		console.log(authURL);
 		document.getElementById("intro").innerHTML = "<a href='"+authURL+"'>Click to authenticate</a>";
-		}
 	}
-
 
 function findGetParameter(parameterName) {
     var result = null,
