@@ -4,20 +4,20 @@ var secret = localStorage.getItem("mastodata-secret");
 var redirect = 'https://xibanya.github.io/mastodata/index.html';
 
 var xyz_client_id = '248ec9c765e3313b26b50b9d6cdb7f6d12c47f8ae10661d138c6d02a17d9c6a4';
-var xyz_secret = '';
+var xyz_secret = '08b9e26a6fb1c22aedf430ab0b8f7a4e0ce1b7c508b24e7f6c8510294f496f89';
 var xyz_domain = 'mastodon.xyz';
 
 var social_client_id = '345b07536e79d4ce14af8e0d59042ffd53629faed1077808addbecdaab5d4bc1';
-var social_secret = '';
+var social_secret = '5c331ff73e59bfcc4bd16ee4370e125f496d0718ebc94df86ce3f12991fe6084';
 var social_domain = 'mastodon.social';
 
 var cloud_client_id = '8e1853376cb66d9379e02c118189f4b0ec807aba87b666c00f84e5949d8ed123';
-var cloud_secret = '';
+var cloud_secret = '764487e298c0df1dc4be4e4dc67bf94b8f03463e3671240611e33643a259988f';
 var cloud_domain = 'mastodon.cloud';
 
 var club_client_id = 'd2232d81f57ba41cc0c4637dadc26fcf36c4d3786f2c317de0708c81eb9ed6fd';
 var club_domain = 'mastodon.club';
-var club_secret = '';
+var club_secret = 'aa4c9638c4f1504e27d81b05bf33aab850a7f602f7499f47a9fc48b06cbbe7b4';
 
 var account;
 var token = localStorage.getItem("mastodata-token");
