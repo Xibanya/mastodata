@@ -25,6 +25,12 @@ var code = localStorage.getItem("mastodata-code");
 var fullFollowers = [];
 var fullFollowing = [];
 
+var logout_html = "<button type=\"button\" class=\"btn btn-secondary\" onclick=logout()>Log Out</button>"
+
+function logout() {
+	localStorage.clear();
+	location.reload();
+}
 
 function xyz () {
 	domain = xyz_domain;
@@ -55,22 +61,14 @@ function cloud () {
 }
 
 	if(typeof code == 'string') {
-		//TODO: remove when done debugging
 		console.log("Already have code: " + code);
-		document.getElementById("intro").innerHTML = "<p>&nbsp;</p>";
+		document.getElementById("logout").innerHTML = logout_html;
 	}
-	else
-	{
-		if (findGetParameter('code') != null) {
+	else if (findGetParameter('code') != null) {
 			code = findGetParameter('code');
 			localStorage.setItem("mastodata-code", code);
-			document.getElementById("intro").innerHTML = "<p>You have a code!</p>";
+			document.getElementById("intro").innerHTML = "<p>Please wait while I analyze your data!</p>";
 		}
-		else
-		{
-			//GetAuthLink();
-		}
-	}
 
 	function GetAuthLink () {
 		localStorage.setItem("mastodata-domain", domain);
@@ -79,7 +77,7 @@ function cloud () {
 		console.log("Don't have code yet");
 		authURL = "https://" + domain + '/oauth/authorize?response_type=code&client_id=' + client_id +'&redirect_uri=' + redirect;
 		console.log(authURL);
-		document.getElementById("intro").innerHTML = "<a href='"+authURL+"'>Click to authenticate</a>";
+		window.location.replace(authURL);
 	}
 
 function findGetParameter(parameterName) {
@@ -363,6 +361,6 @@ if(typeof token == 'string')
 	                }
 	            });
 				
-				document.getElementById("intro").innerHTML = "<p>If you enjoyed this, let me know! Mastodon: Xibanya@mastodon.xyz Twitter: twitter.com/ManuelaXibanya</p>";
+				document.getElementById("intro").innerHTML = logout_html + "<p>If you enjoyed this, let me know! Mastodon: Xibanya@mastodon.xyz Twitter: twitter.com/ManuelaXibanya</p>";
 		}
 	           
