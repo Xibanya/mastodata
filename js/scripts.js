@@ -27,12 +27,15 @@ var fullFollowing = [];
 
 var logout_html = "<button type=\"button\" class=\"btn btn-secondary\" onclick=logout()>Log Out</button>"
 
-function logout() {
+function logout(reload) {
 	localStorage.clear();
+	if (reload) {
 	location.reload();
+	}
 }
 
 function xyz () {
+	logout(false);
 	domain = xyz_domain;
 	client_id = xyz_client_id;	
 	secret = xyz_secret;
@@ -40,6 +43,7 @@ function xyz () {
 }
 
 function social () {
+	logout(false);
 	domain = social_domain;
 	client_id = social_client_id;
 	secret = social_secret;
@@ -47,6 +51,7 @@ function social () {
 }
 
 function club () {
+	logout(false);
 	domain = club_domain;
 	client_id = club_client_id;	
 	secret = club_secret;
@@ -54,6 +59,7 @@ function club () {
 }
 
 function cloud () {
+	logout(false);
 	domain = cloud_domain;
 	client_id = cloud_client_id;
 	secret = cloud_secret;	
@@ -70,8 +76,7 @@ function cloud () {
 			document.getElementById("intro").innerHTML = "<p>Please wait while I analyze your data!</p>";
 		}
 
-	function GetAuthLink () {
-		localStorage.removeItem("mastodata-code");
+	function GetAuthLink () {		
 		localStorage.setItem("mastodata-domain", domain);
 		localStorage.setItem("mastodata-clientid", client_id);
 		localStorage.setItem("mastodata-secret", secret);
@@ -362,6 +367,6 @@ if(typeof token == 'string')
 	                }
 	            });
 				
-				document.getElementById("intro").innerHTML = logout_html + "<p>If you enjoyed this, let me know! Mastodon: Xibanya@mastodon.xyz Twitter: twitter.com/ManuelaXibanya</p>";
+				document.getElementById("intro").innerHTML = "<p>If you enjoyed this, let me know! Mastodon: Xibanya@mastodon.xyz Twitter: twitter.com/ManuelaXibanya</p>";
 		}
 	           
