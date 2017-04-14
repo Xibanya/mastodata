@@ -71,6 +71,7 @@ function cloud () {
 		}
 
 	function GetAuthLink () {
+		localStorage.removeItem("mastodata-code");
 		localStorage.setItem("mastodata-domain", domain);
 		localStorage.setItem("mastodata-clientid", client_id);
 		localStorage.setItem("mastodata-secret", secret);
