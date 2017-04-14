@@ -25,8 +25,6 @@ var code = localStorage.getItem("mastodata-code");
 var fullFollowers = [];
 var fullFollowing = [];
 
-var logout_html = "<button type=\"button\" class=\"btn btn-secondary\" onclick=logout()>Log Out</button>"
-
 function logout(reload) {
 	localStorage.clear();
 	if (reload) {
@@ -67,8 +65,8 @@ function cloud () {
 }
 
 	if(typeof code == 'string') {
-		console.log("Already have code: " + code);
-		document.getElementById("logout").innerHTML = logout_html;
+		//TODO: remove when done debugging
+		console.log("Already have code: " + code);	
 	}
 	else if (findGetParameter('code') != null) {
 			code = findGetParameter('code');
