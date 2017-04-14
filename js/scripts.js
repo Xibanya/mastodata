@@ -19,6 +19,10 @@ var club_client_id = 'd2232d81f57ba41cc0c4637dadc26fcf36c4d3786f2c317de0708c81eb
 var club_domain = 'mastodon.club';
 var club_secret = 'aa4c9638c4f1504e27d81b05bf33aab850a7f602f7499f47a9fc48b06cbbe7b4';
 
+var witches_client_id = '9ddd8aba59cb1230bd6cfbe0c8a3fd0f94459c278471dc61bdbf571b6602da0a';
+var witches_domain = 'witches.town';
+var witches_secret = '50b6a3ca0391115e6cffba2a0d2cd74f44ccb62d83612c89dab20d15a2df0898';
+
 var account;
 var token = localStorage.getItem("mastodata-token");
 var code = localStorage.getItem("mastodata-code");
@@ -61,6 +65,14 @@ function cloud () {
 	domain = cloud_domain;
 	client_id = cloud_client_id;
 	secret = cloud_secret;	
+	GetAuthLink();
+}
+
+function witches () {
+		logout(false);
+	domain = witches_domain;
+	client_id = witches_client_id;
+	secret = witches_secret;	
 	GetAuthLink();
 }
 
