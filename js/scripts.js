@@ -59,7 +59,7 @@ function cloud () {
 		}
 		else
 		{
-			GetAuthLink();
+			//GetAuthLink();
 		}
 	}
 
