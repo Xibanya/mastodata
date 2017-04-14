@@ -1,18 +1,23 @@
 var domain = localStorage.getItem("mastodata-domain");
 var client_id = localStorage.getItem("mastodata-clientid");
+var secret = localStorage.getItem("mastodata-secret");
 var redirect = 'https://xibanya.github.io/mastodata/index.html';
 
 var xyz_client_id = '248ec9c765e3313b26b50b9d6cdb7f6d12c47f8ae10661d138c6d02a17d9c6a4';
+var xyz_secret = '';
 var xyz_domain = 'mastodon.xyz';
 
 var social_client_id = '345b07536e79d4ce14af8e0d59042ffd53629faed1077808addbecdaab5d4bc1';
+var social_secret = '';
 var social_domain = 'mastodon.social';
 
 var cloud_client_id = '8e1853376cb66d9379e02c118189f4b0ec807aba87b666c00f84e5949d8ed123';
+var cloud_secret = '';
 var cloud_domain = 'mastodon.cloud';
 
 var club_client_id = 'd2232d81f57ba41cc0c4637dadc26fcf36c4d3786f2c317de0708c81eb9ed6fd';
 var club_domain = 'mastodon.club';
+var club_secret = '';
 
 var account;
 var token = localStorage.getItem("mastodata-token");
@@ -24,24 +29,28 @@ var fullFollowing = [];
 function xyz () {
 	domain = xyz_domain;
 	client_id = xyz_client_id;	
+	secret = xyz_secret;
 	GetAuthLink();
 }
 
 function social () {
 	domain = social_domain;
-	client_id = social_client_id;	
+	client_id = social_client_id;
+	secret = social_secret;
 	GetAuthLink();
 }
 
 function club () {
 	domain = club_domain;
 	client_id = club_client_id;	
+	secret = club_secret;
 	GetAuthLink();
 }
 
 function cloud () {
 	domain = cloud_domain;
-	client_id = cloud_client_id;	
+	client_id = cloud_client_id;
+	secret = cloud_secret;	
 	GetAuthLink();
 }
 
@@ -66,6 +75,7 @@ function cloud () {
 	function GetAuthLink () {
 		localStorage.setItem("mastodata-domain", domain);
 		localStorage.setItem("mastodata-clientid", client_id);
+		localStorage.setItem("mastodata-secret", secret);
 		console.log("Don't have code yet");
 		authURL = "https://" + domain + '/oauth/authorize?response_type=code&client_id=' + client_id +'&redirect_uri=' + redirect;
 		console.log(authURL);
@@ -91,7 +101,7 @@ if (code != null && typeof token != 'string')
 	var data = new FormData();
 	data.append("grant_type", "authorization_code");
 	data.append("client_id", client_id);
-	data.append("client_secret", "08b9e26a6fb1c22aedf430ab0b8f7a4e0ce1b7c508b24e7f6c8510294f496f89");
+	data.append("client_secret", secret);
 	data.append("redirect_uri", "https://xibanya.github.io/mastodata/index.html");
 	data.append("code", code);
 
@@ -105,7 +115,7 @@ if (code != null && typeof token != 'string')
 		}
 	}
 		
-	getToken.open("POST", "https://mastodon.xyz/oauth/token", true);
+	getToken.open("POST", "https://" + domain + "/oauth/token", true);
 	getToken.send(data);
 	console.log("Sent POST to get token");
 	
@@ -130,7 +140,7 @@ if(typeof token == 'string')
 			}
 		}
 		
-		xmlhttp.open("GET", "https://mastodon.xyz/api/v1/accounts/verify_credentials", true);
+		xmlhttp.open("GET", "https://" + domain + "/api/v1/accounts/verify_credentials", true);
 	    xmlhttp.setRequestHeader("Authorization", "Bearer " + token);
 	    xmlhttp.send();		
 	}
@@ -173,7 +183,7 @@ if(typeof token == 'string')
 			}
 		}
 		
-		xmlhttp.open("GET", "https://mastodon.xyz/api/v1/accounts/" + userID + "/followers", true);
+		xmlhttp.open("GET", "https://" + domain + "/api/v1/accounts/" + userID + "/followers", true);
 	    xmlhttp.setRequestHeader("Authorization", "Bearer " + token);
 	    xmlhttp.send();
 	}
@@ -216,7 +226,7 @@ if(typeof token == 'string')
 			}
 		}
 		
-		xmlhttp.open("GET", "https://mastodon.xyz/api/v1/accounts/" + userID + "/following", true);
+		xmlhttp.open("GET", "https://" + domain + "/api/v1/accounts/" + userID + "/following", true);
 	    xmlhttp.setRequestHeader("Authorization", "Bearer " + token);
 	    xmlhttp.send();
 	}	
